@@ -2,3 +2,6 @@
 .py[oc]
 build/
 dist/
+
+# IDE
+.vscode
