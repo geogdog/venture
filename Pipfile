@@ -8,10 +8,14 @@ nose = "*"
 rednose = "*"
 pylint = "*"
 pep8 = "*"
+genzshcomp = "*"
+setuptools-scm = "*"
 
 [packages]
 sphinx = "*"
 sphinx-rtd-theme = "*"
+pyyaml = "*"
+venture = {editable = true,path = "."}
 
 [requires]
 python_version = "3.7"

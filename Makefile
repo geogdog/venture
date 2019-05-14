@@ -2,7 +2,7 @@
 SHELL := /bin/bash
 
 init:
-	@pipenv install
+	@pipenv install --dev
 	@pipenv shell
 
 ##@ Building and Testing

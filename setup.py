@@ -10,7 +10,7 @@ with open('LICENSE') as f:
 
 setup(
     name='venture',
-    version='0.1.0',
+    use_scm_version=True,
     description='Project management CLI tool',
     long_description=readme,
     author='Greg Trahair',

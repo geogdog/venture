@@ -1,6 +1,6 @@
 Metadata-Version: 1.1
 Name: venture
-Version: 0.1.0
+Version: 0.1.1.dev0+ge857083.d20190514
 Summary: Project management CLI tool
 Home-page: https://github.com/geogdog/venture
 Author: Greg Trahair
