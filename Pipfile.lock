@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "a4660ff208fd7dc8c4b48f88427a6c73cd9999482d7486893eae2a5fb9945fe2"
+            "sha256": "7196bec2186935b63a15dd0e9f195643579b3e6c5029b7c56ae3e7033df028cb"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -380,11 +380,12 @@
         },
         "urllib3": {
             "hashes": [
-                "sha256:8d22f86aae8ef5e410d4f539fde9ce6b2113a001bb4d189e0aed70642d602b11",
-                "sha256:de7df1803967d2c2a98e4b11bb7d6bd9210474c46e8a0401514e3a42a75ebde4"
+                "sha256:c97dfde1f7bd43a71c8d2a58e369e9b2bf692d1334ea9f9cae55add7d0dd0f84",
+                "sha256:fdb6d215c776278489906c2f8916e6e7d4f5a9b602ccbcfdf7f016fc8da0596e"
             ],
-            "markers": "python_full_version >= '3.7.0'",
-            "version": "==2.0.4"
+            "index": "pypi",
+            "markers": "python_version >= '3.7'",
+            "version": "==2.0.7"
         },
         "venture": {
             "editable": true,
