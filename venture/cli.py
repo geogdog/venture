@@ -3,6 +3,7 @@ import argparse
 import logging
 import os
 from yaml import load, dump
+
 try:
     from yaml import CLoader as Loader, CDumper as Dumper
 except ImportError:
@@ -21,9 +22,7 @@ ch = logging.StreamHandler()
 ch.setLevel(logging.DEBUG)
 
 # create formatter
-formatter = logging.Formatter(
-    '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-    )
+formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 
 # add formatter to ch
 ch.setFormatter(formatter)
@@ -32,19 +31,23 @@ ch.setFormatter(formatter)
 logger.addHandler(ch)
 
 # Basic defaults
-VENTURE_DIR = os.path.expanduser('~/.venture')
+VENTURE_DIR = os.path.expanduser("~/.venture")
 # VENTURE_CONFIG = os.path.join(VENTURE_DIR, 'venture.yml')
-VENTURE_CONFIG = 'venture.yml'
+VENTURE_CONFIG = "venture.yml"
 WORKSPACE = os.environ.get("WORKSPACE", VENTURE_DIR)
 
-CONFIG = {'venture': {
-            'config_dir': VENTURE_DIR,
-            'config_file': VENTURE_CONFIG,
-            },
-          'workspaces': []
-         }
+CONFIG = {
+    "venture": {
+        "config_dir": VENTURE_DIR,
+        "config_file": VENTURE_CONFIG,
+    },
+    "workspaces": [],
+}
 
-CONFIG['workspaces'].append({'name': 'Venture', 'vcs_url': 'git@github.com:geogdog/venture.git'})
+CONFIG["workspaces"].append(
+    {"name": "Venture", "vcs_url": "git@github.com:geogdog/venture.git"}
+)
+
 
 def setup():
     # Create config dir
@@ -69,24 +72,26 @@ def main():
 
     # Standard options
     parser.add_argument(
-        '--setup', action="store_const", const=setup,
-        help="setup venture"
+        "--setup", action="store_const", const=setup, help="setup venture"
     )
     parser.add_argument(
-        '--completion', '-c', action="store_const", const=completion,
-        help="print completion to stdout")
+        "--completion",
+        "-c",
+        action="store_const",
+        const=completion,
+        help="print completion to stdout",
+    )
 
-    parser.add_argument('--version', action='version', version=__version__)
+    parser.add_argument("--version", action="version", version=__version__)
 
     subparsers = parser.add_subparsers()
 
     # Add parser for the "create" command
-    create_parser = subparsers.add_parser(
-        'create', help="Create a new project")
-    create_parser.add_argument('giturl', help='url of the git repo')
+    create_parser = subparsers.add_parser("create", help="Create a new project")
+    create_parser.add_argument("giturl", help="url of the git repo")
     # Add parsers for the "workon" command
-    workon_parser = subparsers.add_parser('workon', help="Activate a project")
-    workon_parser.add_argument('projct', help='The name of the project')
+    workon_parser = subparsers.add_parser("workon", help="Activate a project")
+    workon_parser.add_argument("projct", help="The name of the project")
 
     args = parser.parse_args()
 
@@ -97,4 +102,12 @@ def main():
 
     read_config()
 
-    print(dump(CONFIG, default_flow_style=False, Dumper=Dumper, explicit_start=True, explicit_end=True))
+    print(
+        dump(
+            CONFIG,
+            default_flow_style=False,
+            Dumper=Dumper,
+            explicit_start=True,
+            explicit_end=True,
+        )
+    )
