@@ -1,21 +1,29 @@
 .DEFAULT_GOAL := help
 SHELL := /bin/bash
 
-init:
-	@pipenv install --dev
-	@pipenv shell
+##@ Setup
+.PHONY: init
+init: ## Initialise the environment
+	@poetry install
+	@eval $(poetry env activate)
+
+.PHONY: info
+info: ## Show poetry env info
+	@poetry env info
+	@poetry show --tree
 
 ##@ Building and Testing
-test:
+.PHONY: test
+test: ## Run the tests
 	@nosetests --rednose tests
 
-build:
-	@python setup.py build
+.PHONY: build
+build: ## Poetry build dist
+	@poetry build
 
-##@ Docs
-.PHONY: docs
-docs: ## Build the sphinx docs
-	@$(MAKE) -C docs html
+.PHONY: dynamic-version
+dynamic-version: ## Show poetry dynamic version
+	poetry dynamic-versioning show
 
 ##@ Helpers
 .PHONY: cloc help
