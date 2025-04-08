@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "venture"
+version = "0.1.0"
+description = ""
+authors = ["Greg Trahair <greg.trahair@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
