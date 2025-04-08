@@ -16,6 +16,9 @@ pyyaml = "^6.0.2"
 [tool.poetry.scripts]
 venture = "venture.cli:main"
 
+[tool.poetry.group.dev.dependencies]
+adr-tools-python = "^1.0.3"
+
 [tool.poetry-dynamic-versioning]
 enable = true
 vcs = "git"
